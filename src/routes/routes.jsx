@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router';
 import NotFound from '@/pages/NotFound/NotFound';
 import Root from '@/layout/Root';
-import Home from '@/pages/home/Home';
+import Home from '@/pages/Home/Home';
 import ExploreGardeners from '@/pages/Gardeners/ExploreGardeners';
 import BrowseTips from '@/pages/BrowseTips/BrowseTips';
 import PrivateRoute from './PrivateRoutes';
