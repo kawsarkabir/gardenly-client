@@ -35,7 +35,7 @@ export default function FeaturedGardeners() {
             {gardeners.map((gardener) => (
               <div
                 key={gardener._id || gardener.id}
-                className="relative group bg-white rounded-xl shadow-md hover:shadow-xl transition overflow-hidden text-center p-6"
+                className="relative group bg-white rounded-xl shadow hover:shadow-md transition overflow-hidden text-center p-6"
               >
                 <img
                   src={gardener.image || '/default-user.png'}
