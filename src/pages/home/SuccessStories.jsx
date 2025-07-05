@@ -10,8 +10,7 @@ export default function SuccessStories() {
   useEffect(() => {
     fetch('/success.json')
       .then((res) => res.json())
-      .then((data) => setStories(data))
-      .catch((err) => console.error('Failed to fetch stories:', err));
+      .then((data) => setStories(data));
   }, []);
 
   return (
