@@ -32,7 +32,7 @@ export default function BrowseTips() {
   return (
     <div className="max-w-6xl mx-auto my-10 px-4">
       <div className="py-10 text-center">
-        <h1 className="text-4xl font-extrabold text-[#52b788] mb-3">
+        <h1 className="text-3xl md:text-4xl font-bold text-[#52b788] mb-2">
           Browse Garden Tips
         </h1>
         <p className="text-gray-600 max-w-2xl mx-auto text-base">

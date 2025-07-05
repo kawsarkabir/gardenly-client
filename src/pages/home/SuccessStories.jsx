@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { Autoplay, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 export default function SuccessStories() {
   const [stories, setStories] = useState([]);
@@ -18,7 +18,7 @@ export default function SuccessStories() {
       <div className="container mx-auto px-4">
         {/* Section Heading */}
         <div className="text-center mb-12">
-          <p className="uppercase text-green-500 font-semibold tracking-wide mb-2">
+          <p className="uppercase text-[#52b788] font-semibold tracking-wide mb-2">
             From Our Community
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800">

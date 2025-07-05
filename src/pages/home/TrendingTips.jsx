@@ -1,7 +1,7 @@
+import LoadingSpinner from '@/components/LoadingSpinner';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { toast } from 'sonner';
-import LoadingSpinner from './LoadingSpinner';
 
 export default function TrendingTips() {
   const [tips, setTips] = useState([]);
@@ -26,7 +26,7 @@ export default function TrendingTips() {
     <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <p className="uppercase text-green-500 font-semibold tracking-wide mb-2">
+          <p className="uppercase text-[#52b788] font-semibold tracking-wide mb-2">
             tips
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
@@ -53,10 +53,10 @@ export default function TrendingTips() {
                 {tip.title}
               </h3>
               <div className="flex items-center justify-between">
-                <span className="text-white text-xs font-semibold bg-green-500 px-2 py-0.5  rounded-full">
+                <span className="bg-green-100 text-xs font-semibold text-[#52b788] px-2 py-0.5  rounded-full">
                   Category: {tip.category}
                 </span>
-                <span className="bg-yellow-500 text-xs font-semibold text-white px-2 py-0.5  rounded-full">
+                <span className="text-yellow-500 text-xs font-semibold bg-yellow-100 px-2 py-0.5  rounded-full">
                   Difficulty: {tip.difficulty}
                 </span>
               </div>

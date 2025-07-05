@@ -1,10 +1,10 @@
-import { useState, useRef, useEffect } from 'react';
-import { useAuth } from '@/hooks/useAuth';
-import { Button } from '../ui/button';
 import { asset } from '@/assets/assets';
+import { useAuth } from '@/hooks/useAuth';
 import navLinks from '@/utils/navLinks';
+import { useEffect, useRef, useState } from 'react';
 import { FaBars, FaXmark } from 'react-icons/fa6';
 import { Link, NavLink } from 'react-router';
+import { Button } from '../ui/button';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 
 export default function Navbar() {
@@ -42,21 +42,23 @@ export default function Navbar() {
           </Link>
 
           <ul className="hidden md:flex items-center gap-6">
-            {navLinks.map((item) => (
-              <li key={item.id}>
-                <NavLink
-                  to={item.path}
-                  onClick={toggleMenu}
-                  className={({ isActive }) =>
-                    `text-lg font-semibold ${
-                      isActive ? 'text-green-500' : 'text-black'
-                    }`
-                  }
-                >
-                  {item.name}
-                </NavLink>
-              </li>
-            ))}
+            {navLinks
+              .filter((item) => !item.private || (item.private && user))
+              .map((item) => (
+                <li key={item.id}>
+                  <NavLink
+                    to={item.path}
+                    onClick={toggleMenu}
+                    className={({ isActive }) =>
+                      `text-lg font-semibold ${
+                        isActive ? 'text-[#52b788]' : 'text-black'
+                      }`
+                    }
+                  >
+                    {item.name}
+                  </NavLink>
+                </li>
+              ))}
           </ul>
 
           <div
@@ -123,19 +125,21 @@ export default function Navbar() {
           </Link>
 
           <ul className="flex flex-col gap-6">
-            {navLinks.map((item) => (
-              <li key={item.id}>
-                <NavLink
-                  to={item.path}
-                  onClick={toggleMenu}
-                  className={({ isActive }) =>
-                    `text-lg font-semibold ${isActive ? 'text-green-500' : ''}`
-                  }
-                >
-                  {item.name}
-                </NavLink>
-              </li>
-            ))}
+            {navLinks
+              .filter((item) => !item.private || (item.private && user))
+              .map((item) => (
+                <li key={item.id}>
+                  <NavLink
+                    to={item.path}
+                    onClick={toggleMenu}
+                    className={({ isActive }) =>
+                      `text-lg font-semibold ${isActive ? 'text-[#52b788]' : ''}`
+                    }
+                  >
+                    {item.name}
+                  </NavLink>
+                </li>
+              ))}
             {!user && (
               <li>
                 <Link to="/signup">

@@ -1,5 +1,5 @@
+import { Button } from '@/components/ui/button';
 import { Link } from 'react-router';
-import { Button } from './ui/button';
 
 export default function GardeningEvents() {
   const events = [
@@ -38,7 +38,7 @@ export default function GardeningEvents() {
   return (
     <section className="my-16 container mx-auto px-4">
       <div className="text-center mb-12">
-        <p className="uppercase text-green-500 font-semibold tracking-wide mb-2">
+        <p className="uppercase text-[#52b788] font-semibold tracking-wide mb-2">
           Upcoming Events
         </p>
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
@@ -95,7 +95,10 @@ export default function GardeningEvents() {
               {/* Registration Button */}
               <div className="mt-4 md:mt-8">
                 <Link href={registrationLink}>
-                  <Button size={"lg"} className=" bg-green-600 hover:bg-green-700   transition">
+                  <Button
+                    size={'lg'}
+                    className=" bg-green-600 hover:bg-green-700   transition"
+                  >
                     Register
                   </Button>
                 </Link>

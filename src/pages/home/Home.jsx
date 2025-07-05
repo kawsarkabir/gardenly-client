@@ -1,14 +1,8 @@
 import Banner from '@/components/Banner';
-import TrendingTips from '@/components/TrendingTips';
-import GardeningEvents from '@/components/UpcomingEvents';
 import FeaturedGardeners from '@/pages/Home/FeaturedGardeners';
+import TrendingTips from '@/pages/Home/TrendingTips';
 import SuccessStories from './SuccessStories';
-
-// import FeaturedGardeners from '@/components/FeaturedGardeners';
-// import SuccessStories from '@/components/SuccessStories';
-// import TopTrendingTips from '@/components/TopTrendingTips/TopTrendingTips';
-// import UpcomingEvents from './UpcomingEvents';
-// import BeginnersCorner from './BeginnersCorner';
+import GardeningEvents from './UpcomingEvents';
 
 export default function Home() {
   return (
@@ -20,11 +14,6 @@ export default function Home() {
         <FeaturedGardeners />
         <SuccessStories />
       </div>
-      {/* <HowToStartGardening /> */}
-      {/* <FeaturedGardeners />
-      <TopTrendingTips />
-      <SuccessStories />
-      <UpcomingEvents /> */}
     </>
   );
 }

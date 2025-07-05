@@ -55,9 +55,15 @@ export default function MyTips() {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold text-center text-[#52b788] mb-10">
-        My Garden Tips
-      </h1>
+      <div className="text-center my-10">
+        <h1 className="text-3xl md:text-4xl font-bold text-[#52b788] mb-2 leading-snug">
+          My Garden Tips
+        </h1>
+        <p className="text-gray-600 mt-2 text-base max-w-xl mx-auto">
+          Review, edit, or manage all the gardening tips you’ve shared with the
+          community.
+        </p>
+      </div>
 
       {loading ? (
         <LoadingSpinner />

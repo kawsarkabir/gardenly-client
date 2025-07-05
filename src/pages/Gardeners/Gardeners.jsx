@@ -30,10 +30,17 @@ export default function Gardeners() {
     );
 
   return (
-    <section className="container mx-auto px-4 py-12 min-h-screen">
-      <h1 className="text-4xl font-bold text-center mb-12">
-        🌱 Meet Our Gardeners
-      </h1>
+    <section className="container mx-auto px-4 py-16 min-h-screen">
+      <div className="text-center mb-12 max-w-2xl mx-auto">
+        <h1 className="text-3xl md:text-4xl font-bold text-[#52b788] mb-2">
+          Meet Our Gardeners
+        </h1>
+        <p className="text-gray-600 text-base md:text-lg">
+          Explore profiles of passionate gardeners from around the community.
+          Learn from their experience, see their tips, and connect through green
+          stories.
+        </p>
+      </div>
 
       {gardeners.length === 0 ? (
         <p className="text-center text-gray-600">No gardeners found.</p>
@@ -42,7 +49,7 @@ export default function Gardeners() {
           {gardeners.map((gardener) => (
             <div
               key={gardener._id || gardener.id}
-              className="relative group bg-white rounded-xl shadow-md hover:shadow-xl transition overflow-hidden text-center p-6"
+              className="relative group bg-white rounded-xl shadow hover:shadow-md transition overflow-hidden text-center p-6"
             >
               <img
                 src={gardener.image || '/default-user.png'}
