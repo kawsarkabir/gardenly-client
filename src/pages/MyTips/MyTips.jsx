@@ -2,6 +2,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import { Link } from 'react-router';
+import LoadingSpinner from '@/components/LoadingSpinner';
 
 export default function MyTips() {
   const { user } = useAuth();
@@ -39,7 +40,7 @@ export default function MyTips() {
       <h1 className="text-2xl font-semibold mb-4">📂 My Tips</h1>
 
       {loading ? (
-        <p>Loading your tips...</p>
+        <LoadingSpinner />
       ) : (
         <table className="w-full border">
           <thead>

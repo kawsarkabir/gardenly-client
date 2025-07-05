@@ -1,6 +1,7 @@
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
+import LoadingSpinner from '@/components/LoadingSpinner';
 
 export default function TipDetails() {
   const { id } = useParams();
@@ -20,7 +21,7 @@ export default function TipDetails() {
     setTip((prev) => ({ ...prev, totalLiked: prev.totalLiked + 1 }));
   };
 
-  if (!tip) return <p>Loading tip...</p>;
+  if (!tip) return <LoadingSpinner />;
 
   return (
     <div className="max-w-3xl mx-auto my-6 p-6 bg-white shadow rounded">

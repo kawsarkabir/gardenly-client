@@ -53,7 +53,7 @@ export default function UpdateTip() {
       toast.success('Tip updated successfully!');
       navigate('/my-tips');
     } catch (err) {
-      toast.error('Failed to update tip');
+      toast.error(err);
     } finally {
       setLoading(false);
     }

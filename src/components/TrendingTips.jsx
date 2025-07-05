@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { toast } from 'sonner';
+import LoadingSpinner from './LoadingSpinner';
 
 export default function TrendingTips() {
   const [tips, setTips] = useState([]);
@@ -19,8 +20,7 @@ export default function TrendingTips() {
       });
   }, []);
 
-  if (loading)
-    return <p className="text-center py-6">Loading trending tips...</p>;
+  if (loading) return <LoadingSpinner />;
 
   return (
     <section className="py-10">

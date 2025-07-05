@@ -1,3 +1,4 @@
+import LoadingSpinner from '@/components/LoadingSpinner';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { toast } from 'sonner';
@@ -37,7 +38,7 @@ export default function BrowseTips() {
       </div>
 
       {loading ? (
-        <p>Loading tips...</p>
+        <LoadingSpinner />
       ) : (
         <div className="overflow-x-auto">
           <table className="w-full border text-left">

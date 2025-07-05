@@ -1,3 +1,4 @@
+import LoadingSpinner from '@/components/LoadingSpinner';
 import { useEffect, useState } from 'react';
 
 export default function Gardeners() {
@@ -21,7 +22,7 @@ export default function Gardeners() {
       });
   }, []);
 
-  if (loading) return <p className="text-center py-10">Loading gardeners...</p>;
+  if (loading) return <LoadingSpinner />;
 
   if (error) return <p className="text-center py-10 text-red-600">{error}</p>;
 
