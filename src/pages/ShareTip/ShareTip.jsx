@@ -56,8 +56,8 @@ export default function ShareTip() {
     <div className="container mx-auto px-4">
       <div className="py-10">
         <div className="text-center py-10">
-          <h1 className="text-3xl md:text-4xl font-bold text-green-700 mb-2">
-            🌱 Share a Garden Tip
+          <h1 className="text-3xl md:text-4xl font-bold text-[#52b788] mb-2">
+            Share a Garden Tip
           </h1>
           <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
             Help fellow gardeners by sharing your unique gardening experiences,
@@ -71,7 +71,7 @@ export default function ShareTip() {
           <div className=" my-8 p-6 bg-white shadow rounded">
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 space-y-2">
-                <div>
+                <div className="space-y-1">
                   <Label>Title</Label>
                   <Input
                     name="title"
@@ -80,7 +80,7 @@ export default function ShareTip() {
                   />
                 </div>
 
-                <div>
+                <div className="space-y-1">
                   <Label>Plant Type / Topic</Label>
                   <Input
                     name="plantType"
@@ -89,7 +89,7 @@ export default function ShareTip() {
                   />
                 </div>
 
-                <div>
+                <div className="space-y-1">
                   <Label>Difficulty Level</Label>
                   <select
                     name="difficulty"
@@ -101,7 +101,7 @@ export default function ShareTip() {
                   </select>
                 </div>
 
-                <div>
+                <div className="space-y-1">
                   <Label>Category</Label>
                   <select
                     name="category"
@@ -115,7 +115,7 @@ export default function ShareTip() {
                   </select>
                 </div>
 
-                <div>
+                <div className="space-y-1">
                   <Label>Image URL</Label>
                   <Input
                     name="image"
@@ -124,7 +124,7 @@ export default function ShareTip() {
                   />
                 </div>
 
-                <div>
+                <div className="space-y-1">
                   <Label>Availability</Label>
                   <select
                     name="availability"
@@ -135,7 +135,7 @@ export default function ShareTip() {
                   </select>
                 </div>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-1">
                 <Label>Description</Label>
                 <textarea
                   name="description"
@@ -146,12 +146,12 @@ export default function ShareTip() {
                 />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 space-y-2 my-2">
-                <div>
+                <div className="space-y-1">
                   <Label>Your Email</Label>
                   <Input value={user.email} readOnly disabled />
                 </div>
 
-                <div>
+                <div className="space-y-1">
                   <Label>Your Name</Label>
                   <Input value={user.displayName} readOnly disabled />
                 </div>
