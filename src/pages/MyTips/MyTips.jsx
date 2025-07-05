@@ -48,9 +48,8 @@ export default function MyTips() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto my-8 p-4">
+    <div className="container mx-auto my-10 px-4">
       <h1 className="text-2xl font-semibold mb-4">📂 My Tips</h1>
-
       {loading ? (
         <LoadingSpinner />
       ) : (
@@ -58,6 +57,7 @@ export default function MyTips() {
           <thead>
             <tr className="bg-gray-100">
               <th className="p-2 text-left">Title</th>
+              <th className="p-2 text-left">Image</th>
               <th className="p-2 text-left">Status</th>
               <th className="p-2 text-left">Actions</th>
             </tr>
@@ -66,13 +66,18 @@ export default function MyTips() {
             {myTips.map((tip) => (
               <tr key={tip._id} className="border-t">
                 <td className="p-2">{tip.title}</td>
+                <td>
+                  <img src={tip.image} className="w-12 rounded" />
+                </td>
                 <td className="p-2">{tip.availability}</td>
                 <td className="p-2 flex gap-3">
                   <Link
                     to={`/update-tip/${tip._id}`}
                     className="text-blue-600 hover:underline"
                   >
-                    Update
+                    <Button size={'sm'} className={'bg-green-500'}>
+                      Update
+                    </Button>
                   </Link>
 
                   {/* Delete Button With Modal */}
@@ -80,7 +85,9 @@ export default function MyTips() {
                     <DialogTrigger asChild>
                       <Button
                         onClick={() => setTipToDelete(tip._id)}
-                        className="text-red-600 hover:underline"
+                        variant={'destructive'}
+                        size={'sm'}
+                        className={"hover:bg-black"}
                       >
                         Delete
                       </Button>

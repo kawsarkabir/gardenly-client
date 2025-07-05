@@ -1,4 +1,4 @@
-import Logo from './images/logo.png';
+import Logo from './images/Gardenly.png';
 import garden1 from './images/garden-1.jpg';
 import garden2 from './images/garden-2.jpg';
 import garden3 from './images/garden-3.jpg';

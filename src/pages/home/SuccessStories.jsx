@@ -39,11 +39,11 @@ export default function SuccessStories() {
           >
             {stories.map((story) => (
               <SwiperSlide key={story.id}>
-                <div className="flex flex-col items-center text-center max-w-sm mx-auto bg-green-50 p-6 rounded-lg shadow hover:shadow-md transition my-10">
+                <div className="flex flex-col items-center text-center max-w-sm mx-auto   p-6 rounded-lg shadow hover:shadow-md transition my-10">
                   <img
                     src={story.image}
                     alt={story.name}
-                    className="w-24 h-24 object-cover rounded-full border-4 border-green-300 mb-4"
+                    className="w-24 h-24 object-cover rounded-full border-4   mb-4"
                   />
                   <p className="text-sm italic text-gray-700 mb-2">
                     “{story.story}”

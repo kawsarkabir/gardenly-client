@@ -16,7 +16,7 @@ export default function ShareTip() {
     const form = e.target;
     const tipData = {
       title: form.title.value.trim(),
-      topic: form.topic.value.trim(),
+      plantType: form.plantType.value.trim(),
       difficulty: form.difficulty.value,
       description: form.description.value.trim(),
       image: form.image.value.trim(),
@@ -65,7 +65,7 @@ export default function ShareTip() {
 
         <div>
           <Label>Plant Type / Topic</Label>
-          <Input name="topic" placeholder="Indoor Plant, Tomato" required />
+          <Input name="plantType" placeholder="Indoor Plant, Tomato" required />
         </div>
 
         <div>
@@ -104,6 +104,7 @@ export default function ShareTip() {
             <option>Plant Care</option>
             <option>Vertical Gardening</option>
             <option>Balcony Gardening</option>
+            <option>Hydroponics</option>
           </select>
         </div>
 
