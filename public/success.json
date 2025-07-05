@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Rina Akter",
+    "story": "I started balcony gardening during lockdown. Now I supply fresh herbs to neighbors!",
+    "image": "/images/stories/rina.jpg",
+    "location": "Dhaka, Bangladesh"
+  },
+  {
+    "id": 2,
+    "name": "Mahmud Hasan",
+    "story": "From 1 plant to a full rooftop garden! Gardening healed my stress.",
+    "image": "/images/stories/mahmud.jpg",
+    "location": "Chittagong, Bangladesh"
+  },
+  {
+    "id": 3,
+    "name": "Sadia Alam",
+    "story": "My compost bin reduced waste and now my plants thrive naturally.",
+    "image": "/images/stories/sadia.jpg",
+    "location": "Rajshahi, Bangladesh"
+  },
+  {
+    "id": 4,
+    "name": "Tanvir Hossain",
+    "story": "Hydroponic farming changed my view on food production.",
+    "image": "/images/stories/tanvir.jpg",
+    "location": "Sylhet, Bangladesh"
+  },
+  {
+    "id": 5,
+    "name": "Tanvir Hossain",
+    "story": "Hydroponic farming changed my view on food production.",
+    "image": "/images/stories/tanvir.jpg",
+    "location": "Sylhet, Bangladesh"
+  }
+]

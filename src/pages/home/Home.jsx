@@ -1,9 +1,8 @@
 import Banner from '@/components/Banner';
 import TrendingTips from '@/components/TrendingTips';
 import GardeningEvents from '@/components/UpcomingEvents';
-import BeginnersCorner from './BegineerTips';
-import HowToStartGardening from './BegineerTips';
 import FeaturedGardeners from '@/components/FeaturedGardeners';
+import SuccessStories from './SuccessStories';
 
 // import FeaturedGardeners from '@/components/FeaturedGardeners';
 // import SuccessStories from '@/components/SuccessStories';
@@ -18,6 +17,7 @@ export default function Home() {
       <TrendingTips />
       <GardeningEvents />
       <FeaturedGardeners />
+      <SuccessStories />
       {/* <HowToStartGardening /> */}
       {/* <FeaturedGardeners />
       <TopTrendingTips />
