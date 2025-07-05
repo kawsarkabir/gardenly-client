@@ -11,7 +11,7 @@ import TipDetails from '@/pages/TipDetails/TipDetails';
 import UpdateTip from '@/pages/UpdateTip/UpdateTip';
 import SignUp from '@/pages/signUp/SignUp';
 import SignIn from '@/pages/signIn/SignIn';
-
+ 
 export const router = createBrowserRouter([
   {
     path: '/',
