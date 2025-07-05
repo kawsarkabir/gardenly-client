@@ -9,7 +9,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 text-gray-300 py-10 px-6">
+    <footer className="bg-white py-10 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10">
         {/* Contact Info */}
         <div className="space-y-4 max-w-sm">

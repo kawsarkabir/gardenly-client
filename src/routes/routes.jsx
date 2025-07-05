@@ -9,7 +9,6 @@ import ShareTip from '@/pages/ShareTip/ShareTip';
 import MyTips from '@/pages/MyTips/MyTips';
 import TipDetails from '@/pages/TipDetails/TipDetails';
 import UpdateTip from '@/pages/UpdateTip/UpdateTip';
-import Dashboard from '@/pages/dashboard/Dashboard';
 import SignUp from '@/pages/signUp/SignUp';
 import SignIn from '@/pages/signIn/SignIn';
 
@@ -19,20 +18,14 @@ export const router = createBrowserRouter([
     element: <Root />,
     errorElement: <NotFound />,
     children: [
+      // Public routes
+      { index: true, element: <Home /> },
+      { path: 'gardeners', element: <ExploreGardeners /> },
+      { path: 'browse-tips', element: <BrowseTips /> },
+
+      // Protected routes wrapped with PrivateRoute
       {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: '/gardeners',
-        element: <ExploreGardeners />,
-      },
-      {
-        path: '/browse-tips',
-        element: <BrowseTips />,
-      },
-      {
-        path: '/share-tip',
+        path: 'share-tips',
         element: (
           <PrivateRoute>
             <ShareTip />
@@ -40,7 +33,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: '/my-tips',
+        path: 'my-tips',
         element: (
           <PrivateRoute>
             <MyTips />
@@ -48,7 +41,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: '/tip/:id',
+        path: 'tips/:id',
         element: (
           <PrivateRoute>
             <TipDetails />
@@ -56,29 +49,17 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: '/update-tip/:id',
+        path: 'update-tip/:id',
         element: (
           <PrivateRoute>
             <UpdateTip />
           </PrivateRoute>
         ),
       },
-      {
-        path: '/dashboard',
-        element: (
-          <PrivateRoute>
-            <Dashboard />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: '/signup',
-        element: <SignUp />,
-      },
-      {
-        path: '/signin',
-        element: <SignIn />,
-      },
+
+      // Auth routes
+      { path: 'signup', element: <SignUp /> },
+      { path: 'signin', element: <SignIn /> },
     ],
   },
 ]);

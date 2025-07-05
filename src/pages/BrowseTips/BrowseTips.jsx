@@ -1,7 +1,7 @@
 export default function BrowseTips(){
     return (
          <>
-            <h1>BrowseTips</h1>
+            <h1> browser tips</h1>
          </>
     );
 }

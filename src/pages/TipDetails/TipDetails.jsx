@@ -1,7 +1,7 @@
 export default function TipDetails(){
     return (
          <>
-            <h1>TipDetails</h1>
+            <h1>tipsdetails </h1>
          </>
     );
 }

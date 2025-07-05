@@ -1,7 +1,7 @@
 export default function UpdateTip(){
     return (
          <>
-            <h1>UpdateTip</h1>
+            <h1>update tips</h1>
          </>
     );
 }
