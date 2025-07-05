@@ -1,32 +1,37 @@
-import { useActiveGardeners } from '@/hooks/useActiveGardeners ';
+import { useEffect, useState } from 'react';
 
 export default function FeaturedGardeners() {
-  const { data: gardeners = [], isLoading } = useActiveGardeners();
+  const [gardeners, setGardeners] = useState([]);
 
-  if (isLoading) return <div>Loading...</div>;
+  useEffect(() => {
+    fetch('http://localhost:5000/gardeners')
+      .then((res) => res.json())
+      .then((data) => setGardeners(data));
+  }, []);
 
   return (
-    <section className="py-12 ">
+    <section className="py-12 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">
-          🌿 Featured Gardeners
+        <h2 className="text-3xl font-bold text-center mb-8">
+          🌟 Featured Gardeners
         </h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {gardeners.map((gardener) => (
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {gardeners.map((gardener, i) => (
             <div
-              key={gardener._id}
-              className="bg-white rounded-lg shadow-md p-6 text-center space-y-4"
+              key={i}
+              className="bg-green-50 border p-4 rounded-lg shadow-md text-center"
             >
               <img
                 src={gardener.image}
                 alt={gardener.name}
-                className="w-24 h-24 rounded-full mx-auto object-cover"
+                className="w-28 h-28 mx-auto rounded-full object-cover mb-4"
               />
               <h3 className="text-xl font-semibold">{gardener.name}</h3>
               <p className="text-sm text-gray-600">{gardener.experience}</p>
-              <span className="text-xs px-3 py-1 bg-green-100 text-green-600 rounded-full">
-                Active
-              </span>
+              <p className="text-sm text-gray-500 mt-1">
+                Age: {gardener.age} | {gardener.gender}
+              </p>
             </div>
           ))}
         </div>
