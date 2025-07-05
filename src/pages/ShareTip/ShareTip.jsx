@@ -4,6 +4,8 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { useState } from 'react';
+import shareTips from '../../../public/shareTips.json';
+import Lottie from 'lottie-react';
 
 export default function ShareTip() {
   const { user } = useAuth();
@@ -51,88 +53,117 @@ export default function ShareTip() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto my-8 p-6 bg-white shadow rounded">
-      <h1 className="text-2xl font-semibold mb-4">🌱 Share a Garden Tip</h1>
-      <form onSubmit={handleSubmit} className="grid gap-4">
-        <div>
-          <Label>Title</Label>
-          <Input
-            name="title"
-            placeholder="How I Grow Tomatoes Indoors"
-            required
-          />
+    <div className="container mx-auto px-4">
+      <div className="py-10">
+        <div className="text-center py-10">
+          <h1 className="text-3xl md:text-4xl font-bold text-green-700 mb-2">
+            🌱 Share a Garden Tip
+          </h1>
+          <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
+            Help fellow gardeners by sharing your unique gardening experiences,
+            tips, and tricks!
+          </p>
         </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 pt-10">
+          <div>
+            <Lottie animationData={shareTips} />
+          </div>
+          <div className=" my-8 p-6 bg-white shadow rounded">
+            <form onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 space-y-2">
+                <div>
+                  <Label>Title</Label>
+                  <Input
+                    name="title"
+                    placeholder="How I Grow Tomatoes Indoors"
+                    required
+                  />
+                </div>
 
-        <div>
-          <Label>Plant Type / Topic</Label>
-          <Input name="plantType" placeholder="Indoor Plant, Tomato" required />
+                <div>
+                  <Label>Plant Type / Topic</Label>
+                  <Input
+                    name="plantType"
+                    placeholder="Indoor Plant, Tomato"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <Label>Difficulty Level</Label>
+                  <select
+                    name="difficulty"
+                    className="w-full border px-3 py-2 rounded text-[#71717B]"
+                  >
+                    <option>Easy</option>
+                    <option>Medium</option>
+                    <option>Hard</option>
+                  </select>
+                </div>
+
+                <div>
+                  <Label>Category</Label>
+                  <select
+                    name="category"
+                    className="w-full border px-3 py-2 rounded text-[#71717B]"
+                  >
+                    <option>Composting</option>
+                    <option>Plant Care</option>
+                    <option>Vertical Gardening</option>
+                    <option>Balcony Gardening</option>
+                    <option>Hydroponics</option>
+                  </select>
+                </div>
+
+                <div>
+                  <Label>Image URL</Label>
+                  <Input
+                    name="image"
+                    placeholder="https://example.com/image.jpg"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <Label>Availability</Label>
+                  <select
+                    name="availability"
+                    className="w-full border px-3 py-2 rounded text-[#71717B]"
+                  >
+                    <option>Public</option>
+                    <option>Hidden</option>
+                  </select>
+                </div>
+              </div>
+              <div className="space-y-2">
+                <Label>Description</Label>
+                <textarea
+                  name="description"
+                  rows="4"
+                  className="w-full border px-3 py-2 rounded"
+                  placeholder="Write your gardening tip in detail..."
+                  required
+                />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 space-y-2 my-2">
+                <div>
+                  <Label>Your Email</Label>
+                  <Input value={user.email} readOnly disabled />
+                </div>
+
+                <div>
+                  <Label>Your Name</Label>
+                  <Input value={user.displayName} readOnly disabled />
+                </div>
+              </div>
+
+              <Button type="submit" className="w-full" disabled={loading}>
+                {loading ? 'Sharing...' : 'Share Tip'}
+              </Button>
+            </form>
+          </div>
         </div>
-
-        <div>
-          <Label>Difficulty Level</Label>
-          <select name="difficulty" className="w-full border px-3 py-2 rounded">
-            <option>Easy</option>
-            <option>Medium</option>
-            <option>Hard</option>
-          </select>
-        </div>
-
-        <div>
-          <Label>Description</Label>
-          <textarea
-            name="description"
-            rows="4"
-            className="w-full border px-3 py-2 rounded"
-            placeholder="Write your gardening tip in detail..."
-            required
-          />
-        </div>
-
-        <div>
-          <Label>Image URL</Label>
-          <Input
-            name="image"
-            placeholder="https://example.com/image.jpg"
-            required
-          />
-        </div>
-
-        <div>
-          <Label>Category</Label>
-          <select name="category" className="w-full border px-3 py-2 rounded">
-            <option>Composting</option>
-            <option>Plant Care</option>
-            <option>Vertical Gardening</option>
-            <option>Balcony Gardening</option>
-            <option>Hydroponics</option>
-          </select>
-        </div>
-
-        <div>
-          <Label>Availability</Label>
-          <select
-            name="availability"
-            className="w-full border px-3 py-2 rounded"
-          >
-            <option>Public</option>
-            <option>Hidden</option>
-          </select>
-        </div>
-
-        <div>
-          <Label>Your Email</Label>
-          <Input value={user.email} readOnly disabled />
-        </div>
-
-        <div>
-          <Label>Your Name</Label>
-          <Input value={user.displayName} readOnly disabled />
-        </div>
-
-        <Button type="submit" className="w-full" disabled={loading}>
-          {loading ? 'Sharing...' : 'Share Tip'}
-        </Button>
-      </form>
+      </div>
     </div>
   );
 }
