@@ -29,6 +29,20 @@
   },
   {
     "id": 5,
+    "name": "Ashik Khan",
+    "story": "Hydroponic farming changed my view on food production.",
+    "image": "/images/stories/tanvir.jpg",
+    "location": "Sylhet, Bangladesh"
+  }
+  ,{
+    "id": 4,
+    "name": "Enamul Shikder",
+    "story": "Hydroponic farming changed my view on food production.",
+    "image": "/images/stories/tanvir.jpg",
+    "location": "Sylhet, Bangladesh"
+  },
+  {
+    "id": 5,
     "name": "Tanvir Hossain",
     "story": "Hydroponic farming changed my view on food production.",
     "image": "/images/stories/tanvir.jpg",

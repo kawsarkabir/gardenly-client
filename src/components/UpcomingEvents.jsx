@@ -21,7 +21,7 @@ export default function GardeningEvents() {
   ];
 
   return (
-    <section className="my-10 px-4 max-w-5xl mx-auto">
+    <section className="my-10">
       <h2 className="text-2xl font-bold mb-6">Upcoming Gardening Events</h2>
       <ul className="space-y-4">
         {events.map((event) => (

@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router';
 import NotFound from '@/pages/NotFound/NotFound';
 import Root from '@/layout/Root';
 import Home from '@/pages/Home/Home';
-import ExploreGardeners from '@/pages/Gardeners/ExploreGardeners';
+import ExploreGardeners from '@/pages/Gardeners/Gardeners';
 import BrowseTips from '@/pages/BrowseTips/BrowseTips';
 import PrivateRoute from './PrivateRoutes';
 import ShareTip from '@/pages/ShareTip/ShareTip';
@@ -11,7 +11,7 @@ import TipDetails from '@/pages/TipDetails/TipDetails';
 import UpdateTip from '@/pages/UpdateTip/UpdateTip';
 import SignUp from '@/pages/signUp/SignUp';
 import SignIn from '@/pages/signIn/SignIn';
- 
+
 export const router = createBrowserRouter([
   {
     path: '/',

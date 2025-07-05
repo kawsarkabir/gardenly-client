@@ -128,8 +128,8 @@ export default function Navbar() {
 
                 {showLogout && (
                   <div className="absolute top-full mt-2 right-0   bg-white px-3 py-2 rounded shadow   transition w-40">
-                    <h1 className='font-bold'>{user.displayName}</h1>
-                    <Button onClick={handleLogout} className="mt-2" size={"sm"}>
+                    <h1 className="font-bold">{user.displayName}</h1>
+                    <Button onClick={handleLogout} className="mt-2" size={'sm'}>
                       Logout
                     </Button>
                   </div>

@@ -1,39 +1,21 @@
 import { useEffect, useState } from 'react';
 
-export default function Gardeners() {
+export default function FeaturedGardeners() {
   const [gardeners, setGardeners] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/gardeners')
-      .then((res) => {
-        if (!res.ok) throw new Error('Failed to fetch gardeners');
-        return res.json();
-      })
-      .then((data) => {
-        setGardeners(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
+    fetch('http://localhost:5000/gardeners/featured')
+      .then((res) => res.json())
+      .then((data) => setGardeners(data));
   }, []);
 
-  if (loading) return <p className="text-center py-10">Loading gardeners...</p>;
-
-  if (error) return <p className="text-center py-10 text-red-600">{error}</p>;
-
   return (
-    <section className="container mx-auto px-4 py-12 min-h-screen">
-      <h1 className="text-3xl font-bold text-center mb-10">
-        🔍 Explore Gardeners
-      </h1>
+    <section className="py-12 bg-white">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-8">
+          🌟 Featured Gardeners
+        </h2>
 
-      {gardeners.length === 0 ? (
-        <p className="text-center text-gray-600">No gardeners found.</p>
-      ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {gardeners.map((gardener) => (
             <div
@@ -67,7 +49,7 @@ export default function Gardeners() {
             </div>
           ))}
         </div>
-      )}
+      </div>
     </section>
   );
 }

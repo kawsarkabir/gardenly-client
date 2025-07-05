@@ -1,7 +1,7 @@
 import Banner from '@/components/Banner';
 import TrendingTips from '@/components/TrendingTips';
 import GardeningEvents from '@/components/UpcomingEvents';
-import FeaturedGardeners from '@/components/FeaturedGardeners';
+import FeaturedGardeners from '@/pages/Home/FeaturedGardeners';
 import SuccessStories from './SuccessStories';
 
 // import FeaturedGardeners from '@/components/FeaturedGardeners';
@@ -14,10 +14,12 @@ export default function Home() {
   return (
     <>
       <Banner />
-      <TrendingTips />
-      <GardeningEvents />
-      <FeaturedGardeners />
-      <SuccessStories />
+      <div className="container mx-auto px-4">
+        <TrendingTips />
+        <GardeningEvents />
+        <FeaturedGardeners />
+        <SuccessStories />
+      </div>
       {/* <HowToStartGardening /> */}
       {/* <FeaturedGardeners />
       <TopTrendingTips />

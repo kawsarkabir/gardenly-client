@@ -15,7 +15,8 @@ export default function Footer() {
         <div className="space-y-4 max-w-sm">
           <h3 className="text-xl font-semibold mb-3">Contact Us</h3>
           <p className="flex items-center gap-3 text-sm text-gray-300">
-            <FaMapMarkerAlt className="text-green-400" /> 123 Garden St, Green City, Earth
+            <FaMapMarkerAlt className="text-green-400" /> 123 Garden St, Green
+            City, Earth
           </p>
           <p className="flex items-center gap-3 text-sm text-gray-300">
             <FaPhone className="text-green-400" /> +1 (234) 567-890
@@ -28,10 +29,16 @@ export default function Footer() {
         {/* Terms & Links */}
         <div className="space-y-2 flex flex-col justify-center">
           <h3 className="text-xl font-semibold mb-3">Legal</h3>
-          <a href="/terms" className="hover:text-green-400 text-sm text-gray-300 transition-colors">
+          <a
+            href="/terms"
+            className="hover:text-green-400 text-sm text-gray-300 transition-colors"
+          >
             Terms of Service
           </a>
-          <a href="/privacy" className="hover:text-green-400 text-sm text-gray-300 transition-colors">
+          <a
+            href="/privacy"
+            className="hover:text-green-400 text-sm text-gray-300 transition-colors"
+          >
             Privacy Policy
           </a>
         </div>
