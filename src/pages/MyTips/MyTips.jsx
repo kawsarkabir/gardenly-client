@@ -31,6 +31,7 @@ export default function MyTips() {
 
   useEffect(() => {
     loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const confirmDelete = async () => {
@@ -46,7 +47,7 @@ export default function MyTips() {
         loadData();
       }
     } catch (err) {
-      toast.error('Failed to delete tip.');
+      toast.error(err);
     } finally {
       setTipToDelete(null);
     }

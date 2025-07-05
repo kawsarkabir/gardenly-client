@@ -1,7 +1,17 @@
+'use client';
+
 import LoadingSpinner from '@/components/LoadingSpinner';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { toast } from 'sonner';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { Eye } from 'lucide-react';
 
 export default function BrowseTips() {
   const [tips, setTips] = useState([]);
@@ -20,54 +30,95 @@ export default function BrowseTips() {
     filter === 'All' ? tips : tips.filter((tip) => tip.difficulty === filter);
 
   return (
-    <div className="max-w-5xl mx-auto my-8 p-4">
-      <h1 className="text-2xl font-semibold mb-4">🌿 Browse Public Tips</h1>
+    <div className="max-w-6xl mx-auto my-10 px-4">
+      <div className="py-10 text-center">
+        <h1 className="text-4xl font-extrabold text-[#52b788] mb-3">
+          Browse Garden Tips
+        </h1>
+        <p className="text-gray-600 max-w-2xl mx-auto text-base">
+          Explore helpful tips shared by fellow gardeners around the world.
+          Learn new techniques, plant care strategies, and more.
+        </p>
+      </div>
 
-      <div className="mb-4">
-        <label className="font-medium mr-2">Filter by Difficulty:</label>
-        <select
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-          className="border px-3 py-1 rounded"
-        >
-          <option>All</option>
-          <option>Easy</option>
-          <option>Medium</option>
-          <option>Hard</option>
-        </select>
+      <div className="mb-6 flex items-center gap-4">
+        <span className="font-medium text-gray-700">Filter by Difficulty:</span>
+        <Select value={filter} onValueChange={setFilter}>
+          <SelectTrigger className="w-40">
+            <SelectValue placeholder="Select Difficulty" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="All">All</SelectItem>
+            <SelectItem value="Easy">Easy</SelectItem>
+            <SelectItem value="Medium">Medium</SelectItem>
+            <SelectItem value="Hard">Hard</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
 
       {loading ? (
         <LoadingSpinner />
       ) : (
-        <div className="overflow-x-auto">
-          <table className="w-full border text-left">
-            <thead>
-              <tr className="bg-green-100">
-                <th className="p-2">Title</th>
-                <th className="p-2">Category</th>
-                <th className="p-2">Image</th>
-                <th className="p-2">Actions</th>
+        <div className="overflow-x-auto border rounded-md">
+          <table className="w-full text-left border-collapse">
+            <thead className="bg-green-100 text-sm text-gray-700">
+              <tr>
+                <th className="p-3 border">Title</th>
+                <th className="p-3 border">Category</th>
+                <th className="p-3 border">Difficulty</th>
+                <th className="p-3 border">Image</th>
+                <th className="p-3 border">Details</th>
               </tr>
             </thead>
             <tbody>
-              {filteredTips.map((tip) => (
-                <tr key={tip._id} className="border-b">
-                  <td className="p-2">{tip.title}</td>
-                  <td className="p-2">{tip.category}</td>
-                  <td className="p-2">
-                    <img src={tip.image} className="w-16 h-16 object-cover" />
-                  </td>
-                  <td className="p-2">
-                    <Link
-                      to={`/tips/${tip._id}`}
-                      className="text-blue-600 hover:underline"
-                    >
-                      See More
-                    </Link>
+              {filteredTips.length > 0 ? (
+                filteredTips.map((tip) => (
+                  <tr key={tip._id} className="hover:bg-gray-50 text-sm">
+                    <td className="p-3 border">{tip.title}</td>
+                    <td className="p-3 border">{tip.category}</td>
+                    <td className="p-3 border">
+                      <span
+                        className={`px-2 py-1 rounded text-white text-xs font-semibold ${
+                          tip.difficulty === 'Easy'
+                            ? 'bg-green-500'
+                            : tip.difficulty === 'Medium'
+                              ? 'bg-yellow-500'
+                              : 'bg-red-500'
+                        }`}
+                      >
+                        {tip.difficulty}
+                      </span>
+                    </td>
+                    <td className="p-3 border">
+                      <img
+                        src={tip.image || '/placeholder.jpg'}
+                        alt={tip.title}
+                        onError={(e) =>
+                          (e.currentTarget.src = '/placeholder.jpg')
+                        }
+                        className="w-10 h-10 object-cover rounded"
+                      />
+                    </td>
+                    <td className="p-3 border">
+                      <Link
+                        to={`/tips/${tip._id}`}
+                        className="text-blue-600 hover:underline font-medium"
+                      >
+                        <Eye />
+                      </Link>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td
+                    colSpan={5}
+                    className="text-center py-6 text-gray-500 text-sm"
+                  >
+                    No tips found for this difficulty level.
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>
