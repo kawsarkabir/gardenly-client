@@ -32,10 +32,10 @@ export default function BrowseTips() {
   return (
     <div className="max-w-6xl mx-auto my-10 px-4">
       <div className="py-10 text-center">
-        <h1 className="text-3xl md:text-4xl font-bold text-[#52b788] mb-2">
+        <h1 className="text-3xl md:text-4xl font-bold text-[#52b788] mb-2 dark:text-white">
           Browse Garden Tips
         </h1>
-        <p className="text-gray-600 max-w-2xl mx-auto text-base">
+        <p className="text-muted-foreground max-w-2xl mx-auto text-base">
           Explore helpful tips shared by fellow gardeners around the world.
           Learn new techniques, plant care strategies, and more.
         </p>
@@ -73,7 +73,7 @@ export default function BrowseTips() {
             <tbody>
               {filteredTips.length > 0 ? (
                 filteredTips.map((tip) => (
-                  <tr key={tip._id} className="hover:bg-gray-50 text-sm">
+                  <tr key={tip._id} className="hover:bg-black/10 text-sm">
                     <td className="p-3 border">{tip.title}</td>
                     <td className="p-3 border">{tip.category}</td>
                     <td className="p-3 border">

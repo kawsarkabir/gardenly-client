@@ -41,10 +41,10 @@ export default function GardeningEvents() {
         <p className="uppercase text-[#52b788] font-semibold tracking-wide mb-2">
           Upcoming Events
         </p>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground">
           Our Exclusive Events
         </h2>
-        <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+        <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
           Stay updated with the latest workshops, seminars, and contests in our
           gardening community. Join events to learn, share, and grow together.
         </p>

@@ -6,6 +6,7 @@ import { FaBars, FaXmark } from 'react-icons/fa6';
 import { Link, NavLink } from 'react-router';
 import { Button } from '../ui/button';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
+import ThemeToggle from '../ThemeToggle';
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
@@ -34,11 +35,11 @@ export default function Navbar() {
   return (
     <div className="container mx-auto px-4">
       {/* Desktop Navbar */}
-      <nav className="sticky top-0 z-50 bg-white">
+      <nav className="sticky top-0 z-50">
         <div className="max-w-[1300px] mx-auto px-4 py-3 flex items-center justify-between">
           <Link to="/" className="flex items-center">
             <img src={asset.Logo} alt="logo" className="w-10" />
-            <h1 className="text-black text-xl font-semibold">Gardenly</h1>
+            <h1 className="text-black dark:text-white text-xl font-semibold">Gardenly</h1>
           </Link>
 
           <ul className="hidden md:flex items-center gap-6">
@@ -51,7 +52,7 @@ export default function Navbar() {
                     onClick={toggleMenu}
                     className={({ isActive }) =>
                       `text-lg font-semibold ${
-                        isActive ? 'text-[#52b788]' : 'text-black'
+                        isActive ? 'text-[#52b788]' : 'text-black dark:text-white'
                       }`
                     }
                   >
@@ -87,7 +88,7 @@ export default function Navbar() {
 
                 {showLogout && (
                   <div className="absolute top-full mt-2 right-0   bg-white px-3 py-2 rounded shadow   transition w-40">
-                    <h1 className="font-bold">{user.displayName}</h1>
+                    <h1 className="font-bold text-muted-foreground">{user.displayName}</h1>
                     <Button onClick={handleLogout} className="mt-2" size={'sm'}>
                       Logout
                     </Button>
@@ -95,9 +96,14 @@ export default function Navbar() {
                 )}
               </>
             ) : (
-              <Link to="/signup">
-                <Button>Sign Up</Button>
-              </Link>
+              <div className='flex items-center gap-x-4'>
+                <Link to="/signup">
+                  <Button>Sign Up</Button>
+                </Link>
+                <div className="flex items-center gap-4">
+                  <ThemeToggle  />
+                </div>
+              </div>
             )}
           </div>
 

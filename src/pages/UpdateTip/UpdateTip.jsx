@@ -60,7 +60,7 @@ export default function UpdateTip() {
   };
 
   return (
-    <div className="max-w-xl mx-auto my-8 p-6 bg-white shadow rounded">
+    <div className="max-w-xl mx-auto my-8 p-6 shadow rounded">
       <h2 className="text-xl font-semibold mb-4">✏️ Update Tip</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">

@@ -56,10 +56,10 @@ export default function ShareTip() {
     <div className="container mx-auto px-4">
       <div className="py-10">
         <div className="text-center py-10">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#52b788] mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#52b788] mb-2 dark:text-foreground">
             Share a Garden Tip
           </h1>
-          <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
+          <p className="text-muted-foreground text-sm md:text-base max-w-xl mx-auto">
             Help fellow gardeners by sharing your unique gardening experiences,
             tips, and tricks!
           </p>
@@ -68,7 +68,7 @@ export default function ShareTip() {
           <div>
             <Lottie animationData={shareTips} />
           </div>
-          <div className=" my-8 p-6 bg-white shadow rounded">
+          <div className=" my-8 p-6   shadow rounded">
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 space-y-2">
                 <div className="space-y-1">

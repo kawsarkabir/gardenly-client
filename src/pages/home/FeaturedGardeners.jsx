@@ -11,16 +11,16 @@ export default function FeaturedGardeners() {
   }, []);
 
   return (
-    <section className="pb-16 bg-white">
+    <section className="pb-16">
       <div className="container mx-auto px-4">
         <div className="text-center my-20">
           <p className="text-green-600 uppercase tracking-wide font-semibold mb-2">
             Meet Our Experts
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+          <h2 className="text-3xl md:text-4xl font-bold  text-foreground">
             Featured Gardeners
           </h2>
-          <p className="text-gray-500 mt-2 max-w-xl mx-auto">
+          <p className="text-muted-foreground mt-2 max-w-xl mx-auto">
             Discover some of the most active and inspiring gardeners in our
             community. Learn from their experience and see how they grow.
           </p>

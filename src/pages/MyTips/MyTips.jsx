@@ -56,10 +56,10 @@ export default function MyTips() {
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="text-center my-10">
-        <h1 className="text-3xl md:text-4xl font-bold text-[#52b788] mb-2 leading-snug">
+        <h1 className="text-3xl md:text-4xl font-bold text-[#52b788] mb-2 leading-snug dark:text-white">
           My Garden Tips
         </h1>
-        <p className="text-gray-600 mt-2 text-base max-w-xl mx-auto">
+        <p className="text-muted-foreground mt-2 text-base max-w-xl mx-auto">
           Review, edit, or manage all the gardening tips you’ve shared with the
           community.
         </p>
@@ -84,7 +84,7 @@ export default function MyTips() {
             </thead>
             <tbody>
               {myTips.map((tip) => (
-                <tr key={tip._id} className="border-t hover:bg-green-50">
+                <tr key={tip._id} className="border-t hover:bg-green-50 dark:hover:bg-black/10">
                   <td className="p-3 font-medium">{tip.title}</td>
                   <td className="p-3">
                     <img

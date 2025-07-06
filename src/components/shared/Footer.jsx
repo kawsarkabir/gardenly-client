@@ -6,10 +6,11 @@ import {
   FaPhone,
   FaMapMarkerAlt,
 } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 export default function Footer() {
   return (
-    <footer className="bg-green-950 text-white py-10 px-6">
+    <footer className="bg-[#091e17] text-white py-10 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10">
         {/* Contact Info */}
         <div className="space-y-4 max-w-sm">
@@ -29,18 +30,18 @@ export default function Footer() {
         {/* Terms & Links */}
         <div className="space-y-2 flex flex-col justify-center">
           <h3 className="text-xl font-semibold mb-3">Legal</h3>
-          <a
-            href="/terms"
+          <Link
+            to="/terms"
             className="hover:text-green-400 text-sm text-gray-300 transition-colors"
           >
             Terms of Service
-          </a>
-          <a
-            href="/privacy"
+          </Link>
+          <Link
+            to="/privacy"
             className="hover:text-green-400 text-sm text-gray-300 transition-colors"
           >
             Privacy Policy
-          </a>
+          </Link>
         </div>
 
         {/* Social Links */}
@@ -78,7 +79,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mt-10 border-t border-green-700 pt-6 text-center text-sm text-gray-400">
+      <div className="mt-10 border-t border-[#1b4332] pt-6 text-center text-sm text-gray-400">
         &copy; {new Date().getFullYear()} Gardenly. All rights reserved.
       </div>
     </footer>

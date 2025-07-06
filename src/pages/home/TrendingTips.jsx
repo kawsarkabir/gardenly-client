@@ -29,10 +29,10 @@ export default function TrendingTips() {
           <p className="uppercase text-[#52b788] font-semibold tracking-wide mb-2">
             tips
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Top Trending Tips
           </h2>
-          <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             See what’s hot in the gardening world! These tips are loved by our
             community and bring real results.
           </p>
