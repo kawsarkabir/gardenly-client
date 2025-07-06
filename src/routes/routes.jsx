@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       // Public routes
-      { index: true, element: <Home /> },
+      { path: "/", element: <Home /> },
       { path: 'gardeners', element: <ExploreGardeners /> },
       { path: 'browse-tips', element: <BrowseTips /> },
 
