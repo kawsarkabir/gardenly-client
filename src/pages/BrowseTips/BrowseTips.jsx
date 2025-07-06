@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Eye } from 'lucide-react';
+import { Fade } from 'react-awesome-reveal';
 
 export default function BrowseTips() {
   const [tips, setTips] = useState([]);
@@ -31,15 +32,17 @@ export default function BrowseTips() {
 
   return (
     <div className="max-w-6xl mx-auto my-10 px-4">
-      <div className="py-10 text-center">
-        <h1 className="text-3xl md:text-4xl font-bold text-[#52b788] mb-2 dark:text-white">
-          Browse Garden Tips
-        </h1>
-        <p className="text-muted-foreground max-w-2xl mx-auto text-base">
-          Explore helpful tips shared by fellow gardeners around the world.
-          Learn new techniques, plant care strategies, and more.
-        </p>
-      </div>
+      <Fade direction="up">
+        <div className="py-10 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#52b788] mb-2 dark:text-white">
+            Browse Garden Tips
+          </h1>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-base">
+            Explore helpful tips shared by fellow gardeners around the world.
+            Learn new techniques, plant care strategies, and more.
+          </p>
+        </div>
+      </Fade>
 
       <div className="mb-6 flex items-center gap-4">
         <span className="font-medium text-gray-700">Filter by Difficulty:</span>
@@ -70,6 +73,7 @@ export default function BrowseTips() {
                 <th className="p-3 border">Details</th>
               </tr>
             </thead>
+
             <tbody>
               {filteredTips.length > 0 ? (
                 filteredTips.map((tip) => (

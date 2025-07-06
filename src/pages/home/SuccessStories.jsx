@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Fade } from 'react-awesome-reveal';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
@@ -16,19 +17,20 @@ export default function SuccessStories() {
   return (
     <section className="py-20 ">
       <div className="container mx-auto px-4">
-        {/* Section Heading */}
-        <div className="text-center mb-12">
-          <p className="uppercase text-[#52b788] font-semibold tracking-wide mb-2">
-            From Our Community
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold  text-foreground">
-            Success Stories from Gardeners
-          </h2>
-          <p className="  mt-4 max-w-2xl mx-auto text-muted-foreground">
-            Real journeys of growth and greenery. Be inspired by fellow
-            gardeners transforming their lives and spaces.
-          </p>
-        </div>
+        <Fade direction="up">
+          <div className="text-center mb-12">
+            <p className="uppercase text-[#52b788] font-semibold tracking-wide mb-2">
+              From Our Community
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold  text-foreground">
+              Success Stories from Gardeners
+            </h2>
+            <p className="  mt-4 max-w-2xl mx-auto text-muted-foreground">
+              Real journeys of growth and greenery. Be inspired by fellow
+              gardeners transforming their lives and spaces.
+            </p>
+          </div>
+        </Fade>
 
         {/* Swiper Slider */}
         <div className="relative">

@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Fade } from 'react-awesome-reveal';
 import { Link } from 'react-router';
 
 export default function GardeningEvents() {
@@ -37,18 +38,21 @@ export default function GardeningEvents() {
 
   return (
     <section className="my-16 container mx-auto px-4">
-      <div className="text-center mb-12">
-        <p className="uppercase text-[#52b788] font-semibold tracking-wide mb-2">
-          Upcoming Events
-        </p>
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-          Our Exclusive Events
-        </h2>
-        <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-          Stay updated with the latest workshops, seminars, and contests in our
-          gardening community. Join events to learn, share, and grow together.
-        </p>
-      </div>
+      <Fade direction="up">
+        <div className="text-center mb-12">
+          <p className="uppercase text-[#52b788] font-semibold tracking-wide mb-2">
+            Upcoming Events
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            Our Exclusive Events
+          </h2>
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            Stay updated with the latest workshops, seminars, and contests in
+            our gardening community. Join events to learn, share, and grow
+            together.
+          </p>
+        </div>
+      </Fade>
 
       <ul className="space-y-8">
         {events.map(
@@ -61,49 +65,50 @@ export default function GardeningEvents() {
             description,
             registrationLink,
           }) => (
-            <li
-              key={id}
-              className="flex flex-col md:flex-row items-center md:items-start gap-6 bg-white rounded-lg shadow hover:shadow-md transition p-6"
-            >
-              {/* Event Image */}
-              <img
-                src={image}
-                alt={title}
-                className="w-full md:w-40 h-28 rounded-lg object-cover flex-shrink-0"
-                loading="lazy"
-              />
+            <div key={id}>
+              <Fade direction="up">
+                <li className="flex flex-col md:flex-row items-center md:items-start gap-6 bg-white rounded-lg shadow hover:shadow-md transition p-6">
+                  {/* Event Image */}
+                  <img
+                    src={image}
+                    alt={title}
+                    className="w-full md:w-40 h-28 rounded-lg object-cover flex-shrink-0"
+                    loading="lazy"
+                  />
 
-              {/* Event Details */}
-              <div className="flex-1">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {title}
-                </h3>
-                <p className="text-gray-600 mb-1">{description}</p>
-                <div className="flex flex-wrap items-center text-sm text-gray-500 gap-4 mt-2">
-                  <span>
-                    📅{' '}
-                    {new Date(date).toLocaleDateString(undefined, {
-                      year: 'numeric',
-                      month: 'short',
-                      day: 'numeric',
-                    })}
-                  </span>
-                  <span>📍 {location}</span>
-                </div>
-              </div>
+                  {/* Event Details */}
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                      {title}
+                    </h3>
+                    <p className="text-gray-600 mb-1">{description}</p>
+                    <div className="flex flex-wrap items-center text-sm text-gray-500 gap-4 mt-2">
+                      <span>
+                        📅{' '}
+                        {new Date(date).toLocaleDateString(undefined, {
+                          year: 'numeric',
+                          month: 'short',
+                          day: 'numeric',
+                        })}
+                      </span>
+                      <span>📍 {location}</span>
+                    </div>
+                  </div>
 
-              {/* Registration Button */}
-              <div className="mt-4 md:mt-8">
-                <Link href={registrationLink}>
-                  <Button
-                    size={'lg'}
-                    className=" bg-green-600 hover:bg-green-700   transition"
-                  >
-                    Register
-                  </Button>
-                </Link>
-              </div>
-            </li>
+                  {/* Registration Button */}
+                  <div className="mt-4 md:mt-8">
+                    <Link href={registrationLink}>
+                      <Button
+                        size={'lg'}
+                        className=" bg-green-600 hover:bg-green-700   transition"
+                      >
+                        Register
+                      </Button>
+                    </Link>
+                  </div>
+                </li>
+              </Fade>
+            </div>
           ),
         )}
       </ul>
