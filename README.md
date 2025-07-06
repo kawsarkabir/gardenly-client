@@ -1,5 +1,7 @@
 # 🌿 Gardenly - A Gardening Community & Resource Hub
 
+![alt text](./public/banner-live.png)
+
 ### 🔗 Live Site: [https://gardenly-community.netlify.app](https://gardenly-community.netlify.app)
 
 ---
