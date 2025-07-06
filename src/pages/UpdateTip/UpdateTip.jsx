@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router';
-import { toast } from 'sonner';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/useAuth';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router';
+import { toast } from 'sonner';
 
 export default function UpdateTip() {
   const { id } = useParams();
@@ -22,7 +22,7 @@ export default function UpdateTip() {
   });
 
   useEffect(() => {
-    fetch(`http://localhost:5000/tips/${id}`)
+    fetch(`https://gardenly-server.vercel.app/tips/${id}`)
       .then((res) => res.json())
       .then((data) => setFormData(data))
       .catch(() => toast.error('Failed to load tip'));
@@ -43,7 +43,7 @@ export default function UpdateTip() {
     };
 
     try {
-      const res = await fetch(`http://localhost:5000/tips/${id}`, {
+      const res = await fetch(`https://gardenly-server.vercel.app/tips/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedTip),

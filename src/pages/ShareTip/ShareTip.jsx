@@ -1,11 +1,11 @@
-import { useAuth } from '@/hooks/useAuth';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
-import { toast } from 'sonner';
-import { useState } from 'react';
-import shareTips from '../../../public/shareTips.json';
+import { useAuth } from '@/hooks/useAuth';
 import Lottie from 'lottie-react';
+import { useState } from 'react';
+import { toast } from 'sonner';
+import shareTips from '../../../public/shareTips.json';
 
 export default function ShareTip() {
   const { user } = useAuth();
@@ -35,7 +35,7 @@ export default function ShareTip() {
     }
 
     try {
-      const res = await fetch('http://localhost:5000/tips', {
+      const res = await fetch('https://gardenly-server.vercel.app/tips', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(tipData),

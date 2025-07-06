@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
 import LoadingSpinner from '@/components/LoadingSpinner';
-import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 export default function Gardeners() {
   const [gardeners, setGardeners] = useState([]);
@@ -8,7 +8,7 @@ export default function Gardeners() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/gardeners')
+    fetch('https://gardenly-server.vercel.app/gardeners')
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch gardeners');
         return res.json();

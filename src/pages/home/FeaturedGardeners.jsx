@@ -6,7 +6,7 @@ export default function FeaturedGardeners() {
   const [gardeners, setGardeners] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/gardeners?featured=true')
+    fetch('https://gardenly-server.vercel.app/gardeners?featured=true')
       .then((res) => res.json())
       .then((data) => setGardeners(data));
   }, []);

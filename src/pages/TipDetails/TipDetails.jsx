@@ -1,10 +1,10 @@
 'use client';
 
-import { useParams } from 'react-router';
-import { useEffect, useState } from 'react';
-import { toast } from 'sonner';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import { Heart } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
+import { toast } from 'sonner';
 
 export default function TipDetails() {
   const { id } = useParams();
@@ -12,7 +12,7 @@ export default function TipDetails() {
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/tips/${id}`)
+    fetch(`https://gardenly-server.vercel.app/tips/${id}`)
       .then((res) => res.json())
       .then((data) => setTip(data))
       .catch(() => toast.error('Failed to load tip'));
@@ -20,7 +20,7 @@ export default function TipDetails() {
 
   const handleLike = async () => {
     if (liked) return;
-    await fetch(`http://localhost:5000/tips/${id}/like`, {
+    await fetch(`https://gardenly-server.vercel.app/tips/${id}/like`, {
       method: 'PATCH',
     });
     setTip((prev) => ({ ...prev, totalLiked: prev.totalLiked + 1 }));

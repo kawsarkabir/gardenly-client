@@ -1,9 +1,6 @@
 'use client';
 
 import LoadingSpinner from '@/components/LoadingSpinner';
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router';
-import { toast } from 'sonner';
 import {
   Select,
   SelectContent,
@@ -12,7 +9,10 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Eye } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { Fade } from 'react-awesome-reveal';
+import { Link } from 'react-router';
+import { toast } from 'sonner';
 
 export default function BrowseTips() {
   const [tips, setTips] = useState([]);
@@ -20,7 +20,7 @@ export default function BrowseTips() {
   const [filter, setFilter] = useState('All');
 
   useEffect(() => {
-    fetch('http://localhost:5000/tips')
+    fetch('https://gardenly-server.vercel.app/tips')
       .then((res) => res.json())
       .then((data) => setTips(data))
       .catch(() => toast.error('Failed to fetch tips'))

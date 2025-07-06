@@ -1,15 +1,15 @@
 import LoadingSpinner from '@/components/LoadingSpinner';
 import { useEffect, useState } from 'react';
+import { Fade } from 'react-awesome-reveal';
 import { Link } from 'react-router';
 import { toast } from 'sonner';
-import { Fade } from 'react-awesome-reveal';
 
 export default function TrendingTips() {
   const [tips, setTips] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/trending-tips')
+    fetch('https://gardenly-server.vercel.app/trending-tips')
       .then((res) => res.json())
       .then((data) => {
         setTips(data);

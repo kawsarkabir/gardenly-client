@@ -1,19 +1,19 @@
+import LoadingSpinner from '@/components/LoadingSpinner';
+import { Button } from '@/components/ui/button';
+import {
+    Dialog,
+    DialogClose,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from '@/components/ui/dialog';
 import { useAuth } from '@/hooks/useAuth';
 import { useEffect, useState } from 'react';
-import { toast } from 'sonner';
 import { Link } from 'react-router';
-import LoadingSpinner from '@/components/LoadingSpinner';
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
+import { toast } from 'sonner';
 
 export default function MyTips() {
   const { user } = useAuth();
@@ -22,7 +22,7 @@ export default function MyTips() {
   const [tipToDelete, setTipToDelete] = useState(null);
 
   const loadData = () => {
-    fetch(`http://localhost:5000/tips-by-user?email=${user.email}`)
+    fetch(`https://gardenly-server.vercel.app/tips-by-user?email=${user.email}`)
       .then((res) => res.json())
       .then(setMyTips)
       .catch(() => toast.error('Failed to load your tips'))
@@ -38,7 +38,7 @@ export default function MyTips() {
     if (!tipToDelete) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/tips/${tipToDelete}`, {
+      const res = await fetch(`https://gardenly-server.vercel.app/tips/${tipToDelete}`, {
         method: 'DELETE',
       });
       const result = await res.json();
