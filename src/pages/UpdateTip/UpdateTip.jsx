@@ -60,109 +60,120 @@ export default function UpdateTip() {
   };
 
   return (
-    <div className="max-w-xl mx-auto my-8 p-6 shadow rounded">
-      <h2 className="text-xl font-semibold mb-4">✏️ Update Tip</h2>
+    <section className="py-16">
+      <div className="text-center py-10">
+        <h1 className="text-3xl md:text-4xl font-bold text-[#52b788] mb-2 dark:text-foreground">
+          Edit Your Garden Tip
+        </h1>
+        <p className="text-muted-foreground text-sm md:text-base max-w-xl mx-auto">
+          Help fellow gardeners by sharing your unique gardening experiences,
+          tips, and tricks!
+        </p>
+      </div>
+      <div className="max-w-xl mx-auto my-8 p-6 shadow rounded">
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-1">
+              <Label htmlFor="title">Title</Label>
+              <Input
+                name="title"
+                value={formData.title}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <Label htmlFor="title">Title</Label>
-          <Input
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-            required
-          />
-        </div>
+            <div className="space-y-1">
+              <Label htmlFor="plantType">Plant Type / Topic</Label>
+              <Input
+                name="plantType"
+                value={formData.plantType}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-        <div>
-          <Label htmlFor="plantType">Plant Type / Topic</Label>
-          <Input
-            name="plantType"
-            value={formData.plantType}
-            onChange={handleChange}
-            required
-          />
-        </div>
+            <div className="space-y-1">
+              <Label htmlFor="difficulty">Difficulty Level</Label>
+              <select
+                name="difficulty"
+                value={formData.difficulty}
+                onChange={handleChange}
+                className="w-full border px-3 py-2 rounded"
+                required
+              >
+                <option>Easy</option>
+                <option>Medium</option>
+                <option>Hard</option>
+              </select>
+            </div>
 
-        <div>
-          <Label htmlFor="difficulty">Difficulty Level</Label>
-          <select
-            name="difficulty"
-            value={formData.difficulty}
-            onChange={handleChange}
-            className="w-full border px-3 py-2 rounded"
-            required
-          >
-            <option>Easy</option>
-            <option>Medium</option>
-            <option>Hard</option>
-          </select>
-        </div>
+            <div className="space-y-1">
+              <Label htmlFor="category">Category</Label>
+              <select
+                name="category"
+                value={formData.category}
+                onChange={handleChange}
+                className="w-full border px-3 py-2 rounded"
+                required
+              >
+                <option>Composting</option>
+                <option>Plant Care</option>
+                <option>Vertical Gardening</option>
+                <option>Balcony Gardens</option>
+                <option>Hydroponics</option>
+              </select>
+            </div>
 
-        <div>
-          <Label htmlFor="description">Description</Label>
-          <textarea
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            rows="4"
-            className="w-full border rounded px-3 py-2"
-            required
-          />
-        </div>
+            <div className="space-y-1">
+              <Label htmlFor="image">Image URL</Label>
+              <Input
+                name="image"
+                value={formData.image}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-        <div>
-          <Label htmlFor="image">Image URL</Label>
-          <Input
-            name="image"
-            value={formData.image}
-            onChange={handleChange}
-            required
-          />
-        </div>
+            <div className="space-y-1">
+              <Label htmlFor="availability">Availability</Label>
+              <select
+                name="availability"
+                value={formData.availability}
+                onChange={handleChange}
+                className="w-full border px-3 py-2 rounded"
+                required
+              >
+                <option>Public</option>
+                <option>Hidden</option>
+              </select>
+            </div>
+          </div>
 
-        <div>
-          <Label htmlFor="category">Category</Label>
-          <select
-            name="category"
-            value={formData.category}
-            onChange={handleChange}
-            className="w-full border px-3 py-2 rounded"
-            required
-          >
-            <option>Composting</option>
-            <option>Plant Care</option>
-            <option>Vertical Gardening</option>
-            <option>Balcony Gardens</option>
-            <option>Hydroponics</option>
-          </select>
-        </div>
+          <div className="space-y-1">
+            <Label htmlFor="description">Description</Label>
+            <textarea
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+              rows="4"
+              className="w-full border rounded px-3 py-2"
+              required
+            />
+          </div>
 
-        <div>
-          <Label htmlFor="availability">Availability</Label>
-          <select
-            name="availability"
-            value={formData.availability}
-            onChange={handleChange}
-            className="w-full border px-3 py-2 rounded"
-            required
-          >
-            <option>Public</option>
-            <option>Hidden</option>
-          </select>
-        </div>
+          <div className="space-y-1">
+            <Label>User Info</Label>
+            <p className="text-sm text-gray-600 mb-2">
+              👤 {user?.displayName || 'Unknown'} ({user?.email})
+            </p>
+          </div>
 
-        <div>
-          <Label>User Info</Label>
-          <p className="text-sm text-gray-600 mb-2">
-            👤 {user?.displayName || 'Unknown'} ({user?.email})
-          </p>
-        </div>
-
-        <Button type="submit" className="w-full" disabled={loading}>
-          {loading ? 'Updating...' : 'Update Tip'}
-        </Button>
-      </form>
-    </div>
+          <Button type="submit" className="w-full" disabled={loading}>
+            {loading ? 'Updating...' : 'Update Tip'}
+          </Button>
+        </form>
+      </div>
+    </section>
   );
 }

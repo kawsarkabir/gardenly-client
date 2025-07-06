@@ -64,91 +64,95 @@ export default function MyTips() {
           community.
         </p>
       </div>
-
-      {loading ? (
-        <LoadingSpinner />
-      ) : myTips.length === 0 ? (
-        <p className="text-center text-gray-600">
-          You haven’t shared any tips yet.
-        </p>
-      ) : (
-        <div className="overflow-x-auto rounded shadow-sm">
-          <table className="w-full text-sm md:text-base border">
-            <thead className="bg-green-50 border-b">
-              <tr>
-                <th className="text-left p-3">Title</th>
-                <th className="text-left p-3">Image</th>
-                <th className="text-left p-3">Status</th>
-                <th className="text-left p-3">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {myTips.map((tip) => (
-                <tr key={tip._id} className="border-t hover:bg-green-50 dark:hover:bg-black/10">
-                  <td className="p-3 font-medium">{tip.title}</td>
-                  <td className="p-3">
-                    <img
-                      src={tip.image}
-                      alt={tip.title}
-                      className="w-14 h-14 object-cover rounded border"
-                    />
-                  </td>
-                  <td className="p-3 capitalize">{tip.availability}</td>
-                  <td className="p-3">
-                    <div className="flex flex-wrap gap-2">
-                      <Link to={`/update-tip/${tip._id}`}>
-                        <Button
-                          size="sm"
-                          className="bg-green-600 hover:bg-green-700"
-                        >
-                          Update
-                        </Button>
-                      </Link>
-
-                      <Dialog>
-                        <DialogTrigger asChild>
+      <div>
+        {loading ? (
+          <LoadingSpinner />
+        ) : myTips.length === 0 ? (
+          <p className="text-center text-gray-600">
+            You haven’t shared any tips yet.
+          </p>
+        ) : (
+          <div className="overflow-x-auto rounded shadow-sm">
+            <table className="w-full text-sm md:text-base border">
+              <thead className="bg-green-50 border-b">
+                <tr>
+                  <th className="text-left p-3">Title</th>
+                  <th className="text-left p-3">Image</th>
+                  <th className="text-left p-3">Status</th>
+                  <th className="text-left p-3">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {myTips.map((tip) => (
+                  <tr
+                    key={tip._id}
+                    className="border-t hover:bg-green-50 dark:hover:bg-black/10"
+                  >
+                    <td className="p-3 font-medium">{tip.title}</td>
+                    <td className="p-3">
+                      <img
+                        src={tip.image}
+                        alt={tip.title}
+                        className="w-14 h-14 object-cover rounded border"
+                      />
+                    </td>
+                    <td className="p-3 capitalize">{tip.availability}</td>
+                    <td className="p-3">
+                      <div className="flex flex-wrap gap-2">
+                        <Link to={`/update-tip/${tip._id}`}>
                           <Button
                             size="sm"
-                            variant="destructive"
-                            onClick={() => setTipToDelete(tip._id)}
+                            className="bg-green-600 hover:bg-green-700"
                           >
-                            Delete
+                            Update
                           </Button>
-                        </DialogTrigger>
-                        <DialogContent>
-                          <DialogHeader>
-                            <DialogTitle>Confirm Deletion</DialogTitle>
-                            <DialogDescription>
-                              Are you sure you want to delete this tip? This
-                              action is permanent.
-                            </DialogDescription>
-                          </DialogHeader>
-                          <DialogFooter>
-                            <DialogClose asChild>
-                              <Button
-                                variant="outline"
-                                onClick={() => setTipToDelete(null)}
-                              >
-                                Cancel
-                              </Button>
-                            </DialogClose>
+                        </Link>
+
+                        <Dialog>
+                          <DialogTrigger asChild>
                             <Button
+                              size="sm"
                               variant="destructive"
-                              onClick={confirmDelete}
+                              onClick={() => setTipToDelete(tip._id)}
                             >
-                              Yes, Delete
+                              Delete
                             </Button>
-                          </DialogFooter>
-                        </DialogContent>
-                      </Dialog>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+                          </DialogTrigger>
+                          <DialogContent>
+                            <DialogHeader>
+                              <DialogTitle>Confirm Deletion</DialogTitle>
+                              <DialogDescription>
+                                Are you sure you want to delete this tip? This
+                                action is permanent.
+                              </DialogDescription>
+                            </DialogHeader>
+                            <DialogFooter>
+                              <DialogClose asChild>
+                                <Button
+                                  variant="outline"
+                                  onClick={() => setTipToDelete(null)}
+                                >
+                                  Cancel
+                                </Button>
+                              </DialogClose>
+                              <Button
+                                variant="destructive"
+                                onClick={confirmDelete}
+                              >
+                                Yes, Delete
+                              </Button>
+                            </DialogFooter>
+                          </DialogContent>
+                        </Dialog>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

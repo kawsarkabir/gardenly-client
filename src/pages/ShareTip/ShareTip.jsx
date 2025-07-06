@@ -68,7 +68,7 @@ export default function ShareTip() {
           <div>
             <Lottie animationData={shareTips} />
           </div>
-          <div className=" my-8 p-6   shadow rounded">
+          <div className=" my-8 p-6 shadow rounded">
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 space-y-2">
                 <div className="space-y-1">
