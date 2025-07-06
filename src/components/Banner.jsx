@@ -5,6 +5,7 @@ import 'swiper/css/pagination';
 
 import { Button } from '@/components/ui/button';
 import { asset } from '@/assets/assets';
+import { Fade } from 'react-awesome-reveal';
 
 const slides = [
   {
@@ -45,9 +46,11 @@ export default function Banner() {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-[#001F1Dcc] to-[#004D3Bcc] flex items-center justify-center text-white">
                 <div className="max-w-xl text-center px-4 space-y-4">
-                  <h2 className="text-3xl md:text-4xl font-bold">
-                    {slide.title}
-                  </h2>
+                  <Fade delay={"0.5"} direction='down'>
+                    <h2 className="text-3xl md:text-4xl font-bold">
+                      {slide.title}
+                    </h2>
+                  </Fade>
                   <p className="text-lg">{slide.desc}</p>
                   <Button className=" bg-[#52b788] hover:bg-[#40916c] text-white">
                     Explore Event
