@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
       // await sendEmailVerification(result.user);
       setUser(result.user);
       toast.success(
-        'Account created successfully! Please check your email to verify your account.',
+        'Account created successfully!',
         { duration: 5000 },
       );
       return result.user;
